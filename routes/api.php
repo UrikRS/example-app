@@ -26,7 +26,6 @@ Route::post('/users', function (Request $request) {
         'name' => ['required'],
         'phone' => ['required', Rule::unique('users', 'phone')],
         'email' => ['required', 'email'],
-        'password'
     ]);
 
     $user = User::create($userData);
