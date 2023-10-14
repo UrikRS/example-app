@@ -21,11 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Create new user
-Route::post('/users', function(Request $request){
+Route::post('/users', function (Request $request) {
     $userData = $request->validate([
-        'name'=>['required'],
-        'phone'=>['required', Rule::unique('users', 'phone')],
-        'email'=>['required', 'email'],
+        'name' => ['required'],
+        'phone' => ['required', Rule::unique('users', 'phone')],
+        'email' => ['required', 'email'],
         'password'
     ]);
 
@@ -33,20 +33,20 @@ Route::post('/users', function(Request $request){
 
     return json_encode([
         'data' => [
-            'id'=>$user['id'],
-            'name'=>$user['name'],
-            'phone'=>$user['phone'],
-            'email'=>$user['email'],
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'phone' => $user['phone'],
+            'email' => $user['email'],
         ],
     ]);
 });
 
 // Get all users
-Route::get('/users', function(){
+Route::get('/users', function () {
     return User::all();
 });
 
 // Get user by id
-Route::get('/users/{user}', function(User $user){
+Route::get('/users/{user}', function (User $user) {
     return $user;
 });

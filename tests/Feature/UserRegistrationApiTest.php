@@ -11,7 +11,8 @@ class UserRegistrationApiTest extends TestCase
     use WithFaker;
     use RefreshDatabase;
 
-    public function testUserRegistration(){
+    public function testUserRegistration()
+    {
         $userData = [
             'name' => $this->faker->name,
             'phone' => $this->faker->e164PhoneNumber,
@@ -34,6 +35,4 @@ class UserRegistrationApiTest extends TestCase
             'email' => $userData['email'],
         ]);
     }
-
 }
-
