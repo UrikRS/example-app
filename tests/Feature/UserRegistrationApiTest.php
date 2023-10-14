@@ -18,7 +18,7 @@ class UserRegistrationApiTest extends TestCase
             'email' => $this->faker->safeEmail,
         ];
 
-        $response = $this->json('POST', '/users', $userData);
+        $response = $this->json('POST', '/api/users', $userData);
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'data' => [
